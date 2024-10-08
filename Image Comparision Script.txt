@@ -1,0 +1,38 @@
+                                                                Image Comparision Script
+                                                                -------------------------
+                                                                -------------------------
+
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+// Capture a screenshot
+WebDriver driver = new ChromeDriver();
+driver.get("https://example.com");
+Screenshot screenshot = new AShot().takeScreenshot(driver);
+
+// Load the reference image (you can use any image loading method)
+File referenceImage = new File("reference.png");
+
+// Compare the screenshots
+ImageDiff diff = new ImageDiffer().makeDiff(screenshot, ImageIO.read(referenceImage));
+
+if (diff.hasDiff()) {
+    // Images are not the same; do something here
+    System.out.println("Images are different!");
+} else {
+    // Images are the same
+    System.out.println("Images are the same.");
+}
+
+Required dependencies:
+------------------------
+<dependencies>
+    <!-- Other dependencies -->
+    <dependency>
+        <groupId>ru.yandex.qatools.ashot</groupId>
+        <artifactId>ashot</artifactId>
+        <version>1.5.4</version> <!-- Replace with the latest version available -->
+    </dependency>
+</dependencies>
