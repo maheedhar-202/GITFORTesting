@@ -25,6 +25,7 @@ if (diff.hasDiff()) {
     // Images are the same
     System.out.println("Images are the same.");
 }
+//Testing
 
 Required dependencies:
 ------------------------
